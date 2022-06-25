@@ -284,6 +284,7 @@ MonoBehaviour:
     AbilityType: 1
     AbilityName: HEAL
     UseCount: 3
+  _spriteRenderer: {fileID: 2614959354653110640}
   _hpText: {fileID: 7850245966587498629}
 --- !u!1 &2614959355296259110
 GameObject:

@@ -513,6 +513,7 @@ MonoBehaviour:
     AbilityType: 0
     AbilityName: 
     UseCount: 0
+  _spriteRenderer: {fileID: 4817895143139692415}
   _hpText: {fileID: 7850245966587498629}
 --- !u!95 &1108845083233198182
 Animator:

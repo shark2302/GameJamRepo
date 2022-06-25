@@ -50,7 +50,11 @@ namespace DefaultNamespace
 		[SerializeField] 
 		private AbilityInfo _specialAbility;
 
+		[SerializeField]
+		private SpriteRenderer _spriteRenderer;
+
 		private Animator _animator;
+		
 
 		[SerializeField] 
 		private Text _hpText;
@@ -58,6 +62,8 @@ namespace DefaultNamespace
 		private float _hitPoints;
 
 		private int _specialAbilityUse;
+
+		private bool _playDamageAnimation;
 
 		private void OnEnable()
 		{
@@ -71,6 +77,7 @@ namespace DefaultNamespace
 		{
 			target.ChangeHitPoints(-damageValue);
 			PlayAttackAnimation();
+			target.PlayDamagedAnimation();
 		}
 
 		public void Heal(Fighter target, int healValue)
@@ -121,6 +128,7 @@ namespace DefaultNamespace
 			foreach (var target in targets)
 			{
 				Damage(target, (int)(value * DamageToAllMultiplier));
+				target.PlayDamagedAnimation();
 			}
 		}
 
@@ -166,5 +174,24 @@ namespace DefaultNamespace
 				ClickEvent?.Invoke(this);
 			}
 		}
+
+		public void PlayDamagedAnimation()
+		{
+			StartCoroutine(DamageAnimation());
+		}
+
+		private IEnumerator DamageAnimation()
+		{
+			
+			for (int i = 0; i < 5; i++)
+			{
+				yield return new WaitForSeconds(0.1f);
+				_spriteRenderer.color = Color.red;
+				yield return new WaitForSeconds(0.1f);
+				_spriteRenderer.color = Color.white;
+			}
+			
+		}
+		
 	}
 }
