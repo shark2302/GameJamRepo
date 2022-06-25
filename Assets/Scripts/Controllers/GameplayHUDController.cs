@@ -29,10 +29,7 @@ namespace DefaultNamespace
 
 		[SerializeField] 
 		private GameObject _dialogPanel;
-
-		[SerializeField] 
-		private Text _dialogText;
-
+		
 		[SerializeField] 
 		private DialogView _npcView;
 
@@ -40,6 +37,8 @@ namespace DefaultNamespace
 		private DialogView _heroView;
 
 		private Queue<NPC.DialogElement> _dialogQueue;
+		private NPC.NPCDialogData _currentDialogData;
+		private NPC.Dialog _currentDialog;
 
 		private void Awake()
 		{
@@ -60,19 +59,26 @@ namespace DefaultNamespace
 			_figthButton.gameObject.SetActive(state);
 		}
 
-		public void SetActiveDialogButton(bool state, NPC.DialogElement[] dialog)
+		public void SetActiveDialogButton(bool state)
 		{
 			_dialogButton.gameObject.SetActive(state);
-			_dialogQueue = new Queue<NPC.DialogElement>(dialog);
+		}
+
+		public void SetDialogData(NPC.NPCDialogData dialogData)
+		{
+			_currentDialogData = dialogData;
+			
 		}
 
 		public void OnShowDialogClick()
 		{
-			ShowDialog();
+			ShowDialog(_currentDialogData.StartDialog.DialogElements);
+			_currentDialog = _currentDialogData.StartDialog;
 		}
 
-		private void ShowDialog()
+		public void ShowDialog(NPC.DialogElement[] dialog)
 		{
+			_dialogQueue = new Queue<NPC.DialogElement>(dialog);
 			if (_dialogQueue.Count > 0)
 			{
 				_dialogPanel.SetActive(true);
@@ -93,6 +99,11 @@ namespace DefaultNamespace
 			{
 				_dialogPanel.SetActive(false);
 				DialogEndedEvent?.Invoke();
+				if (_currentDialog != null && _currentDialog.StartFightAfterDialog)
+				{
+					AppController.SceneController.SwitchToFightScene(_currentDialogData.Mobs);
+					AppController.FightController.FightEndedEvent += OnFightEndedEvent;
+				}
 				_dialogQueue = null;
 			}
 		}
@@ -116,5 +127,22 @@ namespace DefaultNamespace
 				_heroView.Text.text = dialog.Text;
 			}
 		} 
+		
+		private void OnFightEndedEvent(bool win)
+		{
+			if (win)
+			{
+				ShowDialog(_currentDialogData.WinDialog.DialogElements);
+				_currentDialog = _currentDialogData.WinDialog;
+			}
+			else
+			{
+				ShowDialog(_currentDialogData.LoseDialog.DialogElements);
+				_currentDialog = _currentDialogData.WinDialog;
+			}
+
+			_currentDialog = null;
+			AppController.FightController.FightEndedEvent -= OnFightEndedEvent;
+		}
 	}
 }

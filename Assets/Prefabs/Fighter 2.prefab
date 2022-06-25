@@ -278,7 +278,7 @@ MonoBehaviour:
   Name: "\u041A\u0443\u0431\u0438\u043A"
   DamageFrom: 1
   DamageTo: 6
-  _maxHitPoints: 15
+  _maxHitPoints: 0
   _fighterType: 0
   _specialAbility:
     AbilityType: 0

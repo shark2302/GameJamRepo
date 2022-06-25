@@ -113,7 +113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00055313, y: -81.5}
+  m_AnchoredPosition: {x: 0.00055313, y: -86.3}
   m_SizeDelta: {x: 71.13628, y: 67.61655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &917738469448081359
@@ -278,7 +278,7 @@ MonoBehaviour:
   Name: "\u041A\u0443\u0431\u0438\u043A"
   DamageFrom: 1
   DamageTo: 6
-  _maxHitPoints: 15
+  _maxHitPoints: 3
   _fighterType: 0
   _specialAbility:
     AbilityType: 2

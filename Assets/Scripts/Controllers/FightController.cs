@@ -25,6 +25,8 @@ public class FightController : MonoBehaviour
 	private const string WinText = "Вы победили";
 
 	private const string LoseText = "Вы проиграли";
+
+	public Action<bool> FightEndedEvent;
 	
 	[SerializeField] 
 	private Transform[] _friendsSpots;
@@ -63,14 +65,28 @@ public class FightController : MonoBehaviour
 	private Fighter _currentTurnFighter;
 	private Fighter.FighterType _abilityFighterType;
 	private Fighter _target;
+	private List<GameObject> _destoyOnDisable;
 
 	private void Awake()
 	{
 		AppController.FightController = this;
 	}
-	
+
+	private void OnDisable()
+	{
+		if (_destoyOnDisable != null)
+		{
+			foreach (var obj in _destoyOnDisable)
+			{
+				Destroy(obj);
+			}
+		}
+		
+	}
+
 	public void SetData(GameObject[] enemies)
 	{
+		_destoyOnDisable = new List<GameObject>();
 		SpawnFighters(_friendsPrefabs, _enemiesPrefabs);
 		_currentTurnFighter = _friendlyFighters.Dequeue();
 		_friendlyFighters.Enqueue(_currentTurnFighter);
@@ -86,6 +102,7 @@ public class FightController : MonoBehaviour
 		for (int i = 0; i < friends.Length; i++)
 		{
 			var friend = Instantiate(friends[i], _friendsSpots[i].position, Quaternion.identity);
+			_destoyOnDisable.Add(friend);
 			if (friend.TryGetComponent<Fighter>(out var fighter))
 			{
 				_friendlyFighters.Enqueue(fighter);
@@ -98,6 +115,7 @@ public class FightController : MonoBehaviour
 		for (int i = 0; i < enemy.Length; i++)
 		{
 			var en = Instantiate(enemy[i], _enemiesSpots[i].position, Quaternion.identity);
+			_destoyOnDisable.Add(en);
 			if (en.TryGetComponent<Fighter>(out var fighter))
 			{
 				_enemyFighters.Enqueue(fighter);
@@ -132,7 +150,7 @@ public class FightController : MonoBehaviour
 				
 				yield return new WaitUntil(() => _target != null);
 				
-				ShpwRandomWindow();
+				ShowRandomWindow();
 				yield return new WaitUntil(() => _generatedRandomNumber >= 0);
 				yield return new WaitForSeconds(2f);
 				HideRandomWindow();
@@ -169,6 +187,7 @@ public class FightController : MonoBehaviour
 		yield return new WaitForSeconds(3f);
 		Panel.SetActive(false);
 		AppController.SceneController.SwitchToOpenWorldScene();
+		FightEndedEvent.Invoke(_enemyFighters.Count == 0);
 		yield return true;
 	}
 
@@ -229,7 +248,7 @@ public class FightController : MonoBehaviour
 		}
 	}
 
-	private void ShpwRandomWindow()
+	private void ShowRandomWindow()
 	{
 		Panel.SetActive(false);
 		RandomWindow.gameObject.SetActive(true);

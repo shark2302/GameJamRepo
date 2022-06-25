@@ -27,19 +27,29 @@ public class NPC : MonoBehaviour
       public string Text;
    }
 
+   [Serializable]
+   public class Dialog
+   {
+      public DialogElement[] DialogElements;
+      public bool StartFightAfterDialog;
+   }
+
+   [Serializable]
+   public class NPCDialogData
+   {
+      public Dialog StartDialog;
+      public Dialog WinDialog;
+      public Dialog LoseDialog;
+      public GameObject[] Mobs;
+   }
+
    [SerializeField]
    private NPCInteractionType _interactionType;
 
    [SerializeField] 
-   private DialogElement[] _dialog;
-
-   [SerializeField] 
-   private bool _startFightAfterDialog;
-
-   [SerializeField] 
-   private GameObject[] _mobs;
-
-   private void OnEnable()
+   private NPCDialogData _dialogData;
+   
+  /* private void OnEnable()
    {
       if (_startFightAfterDialog && AppController.GameplayHudController != null)
       {
@@ -53,7 +63,7 @@ public class NPC : MonoBehaviour
       {
          AppController.GameplayHudController.DialogEndedEvent -= DialogEndedEvent;
       }
-   }
+   }*/
 
 
    private void OnTriggerEnter2D(Collider2D other)
@@ -67,10 +77,10 @@ public class NPC : MonoBehaviour
    }
    
    
-   private void DialogEndedEvent()
+  /* private void DialogEndedEvent()
    {
       AppController.SceneController.SwitchToFightScene(_mobs);
-   }
+   }*/
 
    private void CheckOtherTriggerAndSetButtonsStata(Collider2D other, bool state)
    {
@@ -83,7 +93,8 @@ public class NPC : MonoBehaviour
 
          else if (_interactionType == NPCInteractionType.DIALOG)
          {
-            AppController.GameplayHudController.SetActiveDialogButton(state, _dialog);
+            AppController.GameplayHudController.SetActiveDialogButton(state);
+            AppController.GameplayHudController.SetDialogData(_dialogData);
          }
       }
    }
