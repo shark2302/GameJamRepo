@@ -36,6 +36,8 @@ namespace DefaultNamespace
 		[SerializeField] 
 		private DialogView _heroView;
 
+		private HashSet<NPC.Dialog> _endedDialogs;
+		
 		private Queue<NPC.DialogElement> _dialogQueue;
 		private NPC.NPCDialogData _currentDialogData;
 		private NPC.Dialog _currentDialog;
@@ -43,6 +45,7 @@ namespace DefaultNamespace
 		private void Awake()
 		{
 			AppController.GameplayHudController = this;
+			_endedDialogs = new HashSet<NPC.Dialog>();
 		}
 		
 		private void Start()
@@ -76,6 +79,11 @@ namespace DefaultNamespace
 			_currentDialog = _currentDialogData.StartDialog;
 		}
 
+		public void SetCurrentDialog(NPC.Dialog dialog)
+		{
+			_currentDialog = dialog;
+		}
+
 		public void ShowDialog(NPC.DialogElement[] dialog)
 		{
 			_dialogQueue = new Queue<NPC.DialogElement>(dialog);
@@ -99,6 +107,7 @@ namespace DefaultNamespace
 			{
 				_dialogPanel.SetActive(false);
 				DialogEndedEvent?.Invoke();
+				_endedDialogs.Add(_currentDialog);
 				if (_currentDialog != null && _currentDialog.StartFightAfterDialog)
 				{
 					AppController.SceneController.SwitchToFightScene(_currentDialogData.Mobs);
@@ -143,6 +152,11 @@ namespace DefaultNamespace
 
 			_currentDialog = null;
 			AppController.FightController.FightEndedEvent -= OnFightEndedEvent;
+		}
+
+		public bool CheckDialogShowedOnce(NPC.Dialog dialog)
+		{
+			return _endedDialogs.Contains(dialog);
 		}
 	}
 }
