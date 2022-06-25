@@ -3719,6 +3719,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblins_F1
       objectReference: {fileID: 0}
+    - target: {fileID: 8212172160778219763, guid: 1a636c1096c7fa24493a74aa73239a20,
+        type: 3}
+      propertyPath: _dialogData.StartDialog.DialogElements.Array.data[0].Text
+      value: "\u0432\u0430\u043F\u0432\u0430\u043F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212172160778219763, guid: 1a636c1096c7fa24493a74aa73239a20,
+        type: 3}
+      propertyPath: _dialogData.StartDialog.DialogElements.Array.data[1].Name
+      value: 123
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212172160778219763, guid: 1a636c1096c7fa24493a74aa73239a20,
+        type: 3}
+      propertyPath: _dialogData.StartDialog.DialogElements.Array.data[1].Text
+      value: "\u0430\u0432\u043F\u0432\u043F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212172160778219763, guid: 1a636c1096c7fa24493a74aa73239a20,
+        type: 3}
+      propertyPath: _dialogData.StartDialog.DialogElements.Array.data[2].Name
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212172160778219763, guid: 1a636c1096c7fa24493a74aa73239a20,
+        type: 3}
+      propertyPath: _dialogData.StartDialog.DialogElements.Array.data[2].Text
+      value: "\u043A\u043F\u0430\u0432\u043F"
+      objectReference: {fileID: 0}
     - target: {fileID: 8212172160778219765, guid: 1a636c1096c7fa24493a74aa73239a20,
         type: 3}
       propertyPath: m_RootOrder
