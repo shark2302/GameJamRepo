@@ -110,6 +110,7 @@ public class FightController : MonoBehaviour
 	private IEnumerator ProcessFight()
 	{
 		Random r = new Random();
+		_generatedRandomNumber = -1;
 		while (_enemyFighters.Count > 0 && _friendlyFighters.Count > 0)
 		{
 			if (_currentTurnFighter.GetFighterType() == Fighter.FighterType.FRIEND)

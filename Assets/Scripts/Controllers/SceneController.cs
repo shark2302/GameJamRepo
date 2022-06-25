@@ -18,6 +18,7 @@ namespace DefaultNamespace
 			Fight.SetActive(true);
 			AppController.FightController.SetData(enemyMobs);
 			AppController.Camera.MoveToFight();
+			AppController.Music.SwitchToFightMusic();
 		}
 
 		public void SwitchToOpenWorldScene()
@@ -25,6 +26,7 @@ namespace DefaultNamespace
 			OpenWorld.SetActive(true);
 			Fight.SetActive(false);
 			AppController.Camera.MoveToHero();
+			AppController.Music.SwitchToWorldMusic();
 		}
 	}
 }

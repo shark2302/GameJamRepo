@@ -37,5 +37,13 @@ namespace DefaultNamespace
 			set { Instance._camera = value; }
 		}
 
+		private BackgroundMusic _music;
+
+		public static BackgroundMusic Music
+		{
+			get { return Instance._music; }
+			set { Instance._music = value; }
+		}
+
 	}
 }

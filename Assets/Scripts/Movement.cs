@@ -40,7 +40,7 @@ public class Movement : MonoBehaviour
 
    private void Update()
    {
-      if (EventSystem.current.IsPointerOverGameObject() || !_movementAllowed) 
+      if (/*EventSystem.current.IsPointerOverGameObject() ||*/ !_movementAllowed) 
          return;
       
       if (Input.GetMouseButtonDown(0))
