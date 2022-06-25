@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace DefaultNamespace
 {
@@ -7,10 +8,34 @@ namespace DefaultNamespace
 		[SerializeField] 
 		private GameObject FollowedObject;
 
+		[SerializeField] 
+		private GameObject Fight;
+
+		private bool _notFollowPlayer;
+
+		private void Awake()
+		{
+			AppController.Camera = this;
+		}
+
 		private void Update()
 		{
-			var position = FollowedObject.transform.position;
-			transform.position = new Vector3(position.x, position.y, transform.position.z);
+			if (!_notFollowPlayer)
+			{
+				var position = FollowedObject.transform.position;
+				transform.position = new Vector3(position.x, position.y, transform.position.z);
+			}
+		}
+
+		public void MoveToFight()
+		{
+			_notFollowPlayer = true;
+			transform.position = new Vector3(Fight.transform.position.x, Fight.transform.position.y, transform.position.z);
+		}
+
+		public void MoveToHero()
+		{
+			_notFollowPlayer = false;
 		}
 	}
 }

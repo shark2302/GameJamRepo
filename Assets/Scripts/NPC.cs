@@ -32,7 +32,30 @@ public class NPC : MonoBehaviour
 
    [SerializeField] 
    private DialogElement[] _dialog;
-   
+
+   [SerializeField] 
+   private bool _startFightAfterDialog;
+
+   [SerializeField] 
+   private GameObject[] _mobs;
+
+   private void OnEnable()
+   {
+      if (_startFightAfterDialog && AppController.GameplayHudController != null)
+      {
+         AppController.GameplayHudController.DialogEndedEvent += DialogEndedEvent;
+      }
+   }
+
+   private void OnDisable()
+   {
+      if (_startFightAfterDialog && AppController.GameplayHudController != null)
+      {
+         AppController.GameplayHudController.DialogEndedEvent -= DialogEndedEvent;
+      }
+   }
+
+
    private void OnTriggerEnter2D(Collider2D other)
    {
       CheckOtherTriggerAndSetButtonsStata(other, true);
@@ -41,6 +64,12 @@ public class NPC : MonoBehaviour
    private void OnTriggerExit2D(Collider2D other)
    { 
       CheckOtherTriggerAndSetButtonsStata(other, false);
+   }
+   
+   
+   private void DialogEndedEvent()
+   {
+      AppController.SceneController.SwitchToFightScene(_mobs);
    }
 
    private void CheckOtherTriggerAndSetButtonsStata(Collider2D other, bool state)
