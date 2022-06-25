@@ -4883,10 +4883,14 @@ MonoBehaviour:
   - {fileID: 1780666964}
   - {fileID: 1674891496}
   - {fileID: 1359555006}
-  _friendsPrefabs:
-  - {fileID: 2614959354653110644, guid: 53ba8529e068bef49a2550f1a85dc57c, type: 3}
+  _level1Prefabs:
   - {fileID: 2614959354653110644, guid: 8a49faa50797d444b9d603d6014e64e0, type: 3}
   - {fileID: 2614959354653110644, guid: f17ee326289ea1d4789e51753357d33b, type: 3}
+  - {fileID: 2614959354653110644, guid: 53ba8529e068bef49a2550f1a85dc57c, type: 3}
+  _level2Prefabs:
+  - {fileID: 2614959354653110644, guid: 8a49faa50797d444b9d603d6014e64e0, type: 3}
+  - {fileID: 2614959354653110644, guid: f17ee326289ea1d4789e51753357d33b, type: 3}
+  - {fileID: 2614959354653110644, guid: 53ba8529e068bef49a2550f1a85dc57c, type: 3}
   Panel: {fileID: 1177040517}
   RandomWindow: {fileID: 684973604}
   YourTurnText: {fileID: 1192187127}

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
+using DefaultNamespace.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
@@ -35,7 +36,10 @@ public class FightController : MonoBehaviour
 	private Transform[] _enemiesSpots;
 
 	[SerializeField] 
-	private GameObject[] _friendsPrefabs;
+	private GameObject[] _level1Prefabs;
+
+	[SerializeField] 
+	private GameObject[] _level2Prefabs;
 	
 	[Header("UI")] 
 	public GameObject Panel;
@@ -84,7 +88,7 @@ public class FightController : MonoBehaviour
 	public void SetData(GameObject[] enemies)
 	{
 		_destoyOnDisable = new List<GameObject>();
-		SpawnFighters(_friendsPrefabs, enemies);
+		SpawnFighters(CachedParams.GetWinCount() >= 2 && _level2Prefabs.Length > 0 ? _level2Prefabs : _level1Prefabs, enemies);
 		_currentTurnFighter = _friendlyFighters.Dequeue();
 		_friendlyFighters.Enqueue(_currentTurnFighter);
 		Panel.SetActive(true);
@@ -175,6 +179,7 @@ public class FightController : MonoBehaviour
 		if (_enemyFighters.Count == 0)
 		{
 			TipText.text = WinText;
+			CachedParams.AddWin();
 		}
 		else
 		{
