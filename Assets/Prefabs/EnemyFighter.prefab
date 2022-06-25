@@ -278,7 +278,7 @@ MonoBehaviour:
   Name: 
   DamageFrom: 0
   DamageTo: 0
-  _maxHitPoints: 20
+  _maxHitPoints: 3
   _fighterType: 1
   _specialAbility:
     AbilityType: 0
