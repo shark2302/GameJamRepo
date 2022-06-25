@@ -53,6 +53,12 @@ namespace DefaultNamespace
 		[SerializeField]
 		private SpriteRenderer _spriteRenderer;
 
+		[SerializeField] 
+		private GameObject _bulletPrefab;
+
+		[SerializeField] 
+		private Transform _bulletStart;
+
 		private Animator _animator;
 		
 
@@ -76,8 +82,7 @@ namespace DefaultNamespace
 		public void Damage(Fighter target, int damageValue)
 		{
 			target.ChangeHitPoints(-damageValue);
-			PlayAttackAnimation();
-			target.PlayDamagedAnimation();
+			PlayAttackAnimation(target);
 		}
 
 		public void Heal(Fighter target, int healValue)
@@ -128,7 +133,8 @@ namespace DefaultNamespace
 			foreach (var target in targets)
 			{
 				Damage(target, (int)(value * DamageToAllMultiplier));
-				target.PlayDamagedAnimation();
+				//target.PlayDamagedAnimation();
+				CreateBullet(target);
 			}
 		}
 
@@ -152,18 +158,19 @@ namespace DefaultNamespace
 			return _specialAbility.AbilityType;
 		}
 
-		private void PlayAttackAnimation()
+		private void PlayAttackAnimation(Fighter target)
 		{
 			if (_animator != null)
 			{
 				_animator.SetBool("Attack", true);
-				StartCoroutine(StopAttackAnimatioAfterDelay(_animator.GetCurrentAnimatorStateInfo(0).length));
+				StartCoroutine(StopAttackAnimatioAfterDelay(_animator.GetCurrentAnimatorStateInfo(0).length, target));
 			}
 		}
 
-		private IEnumerator StopAttackAnimatioAfterDelay(float delay)
+		private IEnumerator StopAttackAnimatioAfterDelay(float delay, Fighter target)
 		{
 			yield return new WaitForSeconds(delay);
+			CreateBullet(target);
 			_animator.SetBool("Attack", false);
 		}
 		
@@ -180,6 +187,17 @@ namespace DefaultNamespace
 			StartCoroutine(DamageAnimation());
 		}
 
+		private void CreateBullet(Fighter target)
+		{
+			if (_bulletPrefab != null)
+			{
+				var bullet = Instantiate(_bulletPrefab, _bulletStart.position, Quaternion.identity);
+				if (bullet.TryGetComponent<Bullet>(out var b))
+				{
+					b.SetTarget(target);
+				}
+			}
+		}
 		private IEnumerator DamageAnimation()
 		{
 			

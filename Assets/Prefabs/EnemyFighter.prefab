@@ -284,6 +284,9 @@ MonoBehaviour:
     AbilityType: 0
     AbilityName: 
     UseCount: 0
+  _spriteRenderer: {fileID: 0}
+  _bulletPrefab: {fileID: 0}
+  _bulletStart: {fileID: 0}
   _hpText: {fileID: 7850245966587498629}
 --- !u!1 &2614959355296259110
 GameObject:
