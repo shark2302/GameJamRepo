@@ -36,10 +36,7 @@ public class FightController : MonoBehaviour
 
 	[SerializeField] 
 	private GameObject[] _friendsPrefabs;
-
-	[SerializeField] 
-	private GameObject[] _enemiesPrefabs;
-
+	
 	[Header("UI")] 
 	public GameObject Panel;
 
@@ -87,7 +84,7 @@ public class FightController : MonoBehaviour
 	public void SetData(GameObject[] enemies)
 	{
 		_destoyOnDisable = new List<GameObject>();
-		SpawnFighters(_friendsPrefabs, _enemiesPrefabs);
+		SpawnFighters(_friendsPrefabs, enemies);
 		_currentTurnFighter = _friendlyFighters.Dequeue();
 		_friendlyFighters.Enqueue(_currentTurnFighter);
 		Panel.SetActive(true);

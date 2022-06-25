@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -47,6 +49,8 @@ namespace DefaultNamespace
 		[SerializeField] 
 		private AbilityInfo _specialAbility;
 
+		private Animator _animator;
+
 		[SerializeField] 
 		private Text _hpText;
 		
@@ -58,12 +62,14 @@ namespace DefaultNamespace
 		{
 			_hitPoints = _maxHitPoints;
 			_hpText.text = _hitPoints + "/" + _maxHitPoints;
+			_animator = GetComponent<Animator>();
 		}
 
 
 		public void Damage(Fighter target, int damageValue)
 		{
 			target.ChangeHitPoints(-damageValue);
+			PlayAttackAnimation();
 		}
 
 		public void Heal(Fighter target, int healValue)
@@ -135,6 +141,21 @@ namespace DefaultNamespace
 		public AbilityType GetSpecialAbilityType()
 		{
 			return _specialAbility.AbilityType;
+		}
+
+		private void PlayAttackAnimation()
+		{
+			if (_animator != null)
+			{
+				_animator.SetBool("Attack", true);
+				StartCoroutine(StopAttackAnimatioAfterDelay(1f));
+			}
+		}
+
+		private IEnumerator StopAttackAnimatioAfterDelay(float delay)
+		{
+			yield return new WaitForSeconds(delay);
+			_animator.SetBool("Attack", false);
 		}
 		
 		public void OnPointerDown(PointerEventData eventData)
