@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using TMPro.EditorUtilities;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -148,7 +149,7 @@ namespace DefaultNamespace
 			if (_animator != null)
 			{
 				_animator.SetBool("Attack", true);
-				StartCoroutine(StopAttackAnimatioAfterDelay(1f));
+				StartCoroutine(StopAttackAnimatioAfterDelay(_animator.GetCurrentAnimatorStateInfo(0).length));
 			}
 		}
 
