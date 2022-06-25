@@ -6,10 +6,8 @@ using UnityEngine;
 
 public class BackgroundMusic : MonoBehaviour
 {
-
-	public AudioClip WorldsMusic;
-	public AudioClip FightMusic;
-	public AudioSource Source;
+	public AudioSource WorldMusic;
+	public AudioSource FightMusic;
 	private void Awake()
 	{
 		AppController.Music = this;
@@ -17,16 +15,18 @@ public class BackgroundMusic : MonoBehaviour
 
 	private void OnEnable()
 	{
-		Source.clip = WorldsMusic;
+		WorldMusic.Play();
 	}
 
 	public void SwitchToFightMusic()
 	{
-		Source.clip = FightMusic;
+		WorldMusic.Pause();
+		FightMusic.Play();
 	}
 
 	public void SwitchToWorldMusic()
 	{
-		Source.clip = WorldsMusic;
+		FightMusic.Pause();
+		WorldMusic.Play();
 	}
 }
