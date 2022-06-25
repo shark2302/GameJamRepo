@@ -7,6 +7,16 @@ namespace DefaultNamespace
 {
 	public class GameplayHUDController : MonoBehaviour
 	{
+
+		[Serializable]
+		public class DialogView
+		{
+			public GameObject View;
+			public Text Text;
+			public Image Image;
+			public Text Name;
+		}
+		
 		public Action DialogStartedEvent;
 
 		public Action DialogEndedEvent;
@@ -23,7 +33,13 @@ namespace DefaultNamespace
 		[SerializeField] 
 		private Text _dialogText;
 
-		private Queue<string> _dialogQueue;
+		[SerializeField] 
+		private DialogView _npcView;
+
+		[SerializeField] 
+		private DialogView _heroView;
+
+		private Queue<NPC.DialogElement> _dialogQueue;
 
 		private void Awake()
 		{
@@ -35,6 +51,8 @@ namespace DefaultNamespace
 			_figthButton.gameObject.SetActive(false);
 			_dialogButton.gameObject.SetActive(false);
 			_dialogPanel.SetActive(false);
+			_npcView.View.SetActive(false);
+			_heroView.View.SetActive(false);
 		}
 
 		public void SetActiveFigthButton(bool state)
@@ -42,10 +60,10 @@ namespace DefaultNamespace
 			_figthButton.gameObject.SetActive(state);
 		}
 
-		public void SetActiveDialogButton(bool state, string[] dialog)
+		public void SetActiveDialogButton(bool state, NPC.DialogElement[] dialog)
 		{
 			_dialogButton.gameObject.SetActive(state);
-			_dialogQueue = new Queue<string>(dialog);
+			_dialogQueue = new Queue<NPC.DialogElement>(dialog);
 		}
 
 		public void OnShowDialogClick()
@@ -58,7 +76,7 @@ namespace DefaultNamespace
 			if (_dialogQueue.Count > 0)
 			{
 				_dialogPanel.SetActive(true);
-				_dialogText.text = _dialogQueue.Dequeue();
+				SetDialogView(_dialogQueue.Dequeue());
 				DialogStartedEvent?.Invoke();
 				_dialogButton.gameObject.SetActive(false);
 			}
@@ -66,8 +84,11 @@ namespace DefaultNamespace
 
 		public void OnNextDialogButtonClick()
 		{
-			if(_dialogQueue.Count > 0)
-				_dialogText.text = _dialogQueue.Dequeue();
+			if (_dialogQueue.Count > 0)
+			{
+				var element = _dialogQueue.Dequeue();
+				SetDialogView(element);
+			}
 			else
 			{
 				_dialogPanel.SetActive(false);
@@ -75,5 +96,25 @@ namespace DefaultNamespace
 				_dialogQueue = null;
 			}
 		}
+
+		private void SetDialogView(NPC.DialogElement dialog)
+		{
+			if (dialog.SpeakerType == NPC.SpeakerType.NPC)
+			{
+				_npcView.View.SetActive(true);
+				_heroView.View.SetActive(false);
+				_npcView.Image.sprite = dialog.Sprite;
+				_npcView.Name.text = dialog.Name;
+				_npcView.Text.text = dialog.Text;
+			}
+			else if (dialog.SpeakerType == NPC.SpeakerType.HERO)
+			{
+				_npcView.View.SetActive(false);
+				_heroView.View.SetActive(true);
+				_heroView.Image.sprite = dialog.Sprite;
+				_heroView.Name.text = dialog.Name;
+				_heroView.Text.text = dialog.Text;
+			}
+		} 
 	}
 }

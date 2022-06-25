@@ -13,5 +13,13 @@ namespace DefaultNamespace
 			set { Instance._hudController = value; }
 		}
 
+		private SceneController _sceneController;
+
+		public static SceneController SceneController
+		{
+			get { return Instance._sceneController; }
+			set { Instance._sceneController = value; }
+		}
+
 	}
 }

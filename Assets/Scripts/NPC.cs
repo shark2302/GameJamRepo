@@ -11,12 +11,27 @@ public class NPC : MonoBehaviour
       FIGHT,
       DIALOG
    }
+   
+   public enum SpeakerType
+   {
+      NPC, 
+      HERO
+   }
+
+   [Serializable]
+   public class DialogElement
+   {
+      public string Name;
+      public Sprite Sprite;
+      public SpeakerType SpeakerType;
+      public string Text;
+   }
 
    [SerializeField]
    private NPCInteractionType _interactionType;
 
    [SerializeField] 
-   private string[] _dialog;
+   private DialogElement[] _dialog;
    
    private void OnTriggerEnter2D(Collider2D other)
    {
