@@ -44,6 +44,14 @@ namespace DefaultNamespace
 			get { return Instance._music; }
 			set { Instance._music = value; }
 		}
+		
+		private HeroController _hero;
+
+		public static HeroController Hero
+		{
+			get { return Instance._hero; }
+			set { Instance._hero = value; }
+		}
 
 	}
 }

@@ -201,7 +201,12 @@ public class FightController : MonoBehaviour
 		if (_enemyFighters.Count == 0)
 		{
 			TipText.text = WinText;
+			var cachedParam = CachedParams.GetWinCount();
 			CachedParams.AddWin();
+			if (cachedParam < 2 && CachedParams.GetWinCount() >= 2)
+			{
+				AppController.Hero.ChangeHeroLevel();
+			}
 		}
 		else
 		{
