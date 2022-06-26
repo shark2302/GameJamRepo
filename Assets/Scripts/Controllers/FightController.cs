@@ -23,6 +23,8 @@ public class FightController : MonoBehaviour
 
 	private const string Tip1 = "Выберете противника, по которому нанести урон";
 
+	private const string Tip2 = "Выберете союзника для лечения";
+
 	private const string WinText = "Вы победили";
 
 	private const string LoseText = "Вы проиграли";
@@ -159,6 +161,7 @@ public class FightController : MonoBehaviour
 				    _currentTurnFighter.GetSpecialAbilityType() == Fighter.AbilityType.HEAL)
 				{
 					_abilityFighterType = Fighter.FighterType.FRIEND;
+					TipText.text = Tip2;
 				}
 				
 				
@@ -205,6 +208,7 @@ public class FightController : MonoBehaviour
 			
 		}
 
+		YourTurnText.gameObject.SetActive(false);
 		if (_enemyFighters.Count == 0)
 		{
 			TipText.text = WinText;
