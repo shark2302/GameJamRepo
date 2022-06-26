@@ -3778,13 +3778,13 @@ PrefabInstance:
         type: 3}
       propertyPath: _dialogData.Mobs.Array.data[0]
       value: 
-      objectReference: {fileID: 2614959354653110644, guid: a5a4e0de28bf7af40a08272f868cb9a5,
+      objectReference: {fileID: 2614959354653110644, guid: 20de2beef9e79aa4b95c9fd7da2e6dec,
         type: 3}
     - target: {fileID: 8212172160778219763, guid: 1a636c1096c7fa24493a74aa73239a20,
         type: 3}
       propertyPath: _dialogData.Mobs.Array.data[1]
       value: 
-      objectReference: {fileID: 2614959354653110644, guid: 20de2beef9e79aa4b95c9fd7da2e6dec,
+      objectReference: {fileID: 2614959354653110644, guid: a5a4e0de28bf7af40a08272f868cb9a5,
         type: 3}
     - target: {fileID: 8212172160778219763, guid: 1a636c1096c7fa24493a74aa73239a20,
         type: 3}
