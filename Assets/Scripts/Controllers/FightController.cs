@@ -17,7 +17,7 @@ public class FightController : MonoBehaviour
 		SPECIAL
 	}
 	
-	private const string YourTurnString = "Ваш ход\nПерсонаж: <color='green'>{0}</color>";
+	private const string YourTurnString = "Ваш ход\nПерсонаж: <color={0}>{1}</color>";
 
 	private const string EnemyTurn = "Ход соперника";
 
@@ -271,7 +271,7 @@ public class FightController : MonoBehaviour
 		if (_currentTurnFighter.GetFighterType() == Fighter.FighterType.FRIEND)
 		{
 			YourTurnText.gameObject.SetActive(true);
-			YourTurnText.text = string.Format(YourTurnString, _currentTurnFighter.Name);
+			YourTurnText.text = string.Format(YourTurnString, _currentTurnFighter.ColorCode, _currentTurnFighter.Name);
 			TipText.gameObject.SetActive(false);
 			DamageButton.SetActive(true);
 			var specialAbilityAvailableUse = _currentTurnFighter.AvailableSpecialAbilityUse();

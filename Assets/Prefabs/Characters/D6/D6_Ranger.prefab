@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: "\u0414\u0430\u0439\u0441\u0438\u043A\u0441"
+  ColorCode: '#9AB120'
   DamageFrom: 1
   DamageTo: 6
   DamageToAllMultiplier: 0.3

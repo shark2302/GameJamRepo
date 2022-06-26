@@ -389,6 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: "\u0420\u0430\u043D\u0434\u043E\u043B\u044C\u0444"
+  ColorCode: '#6D258C'
   DamageFrom: 1
   DamageTo: 6
   DamageToAllMultiplier: 0.3

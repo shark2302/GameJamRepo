@@ -35,6 +35,8 @@ namespace DefaultNamespace
 
 		public string Name;
 
+		public string ColorCode;
+
 		public int DamageFrom;
 
 		public int DamageTo;

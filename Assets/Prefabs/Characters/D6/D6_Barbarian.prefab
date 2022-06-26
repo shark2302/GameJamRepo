@@ -422,6 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: "\u041A\u0443\u0431\u043E\u043D\u0430\u043D"
+  ColorCode: '#E8870C'
   DamageFrom: 1
   DamageTo: 6
   DamageToAllMultiplier: 0.3
