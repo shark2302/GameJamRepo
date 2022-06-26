@@ -37,5 +37,10 @@ namespace DefaultNamespace
 		{
 			_notFollowPlayer = false;
 		}
+
+		public void ChangeFollowObject(GameObject follow)
+		{
+			FollowedObject = follow;
+		}
 	}
 }

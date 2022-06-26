@@ -258,16 +258,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e5f5f8e4b1452e9841b0a0de8faa91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: "\u041A\u0443\u0431\u0438\u043A"
+  Name: "\u0414\u0430\u0439\u0441\u0438\u043A\u0441"
   DamageFrom: 1
-  DamageTo: 6
-  _maxHitPoints: 3
+  DamageTo: 12
+  DamageToAllMultiplier: 0.3
+  _maxHitPoints: 42
   _fighterType: 0
   _specialAbility:
     AbilityType: 2
     AbilityName: Damage to all
     UseCount: 3
-  _spriteRenderer: {fileID: 0}
+  UseSpecialAbilityOnly: 0
+  _spriteRenderer: {fileID: 2991165839699298635}
   _bulletPrefab: {fileID: 6120700396509613123, guid: 5c6627d0e07e2b4468f45eeeab5f88eb,
     type: 3}
   _bulletStart: {fileID: 2614959354653110647}
@@ -441,7 +443,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 5689e4a9e6cac0c4d976a4ac4a557dbb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2ae145caa261bcb47a841dd7f05b4020, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -522,7 +524,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 20a6c7ea4e34cfb4892b87d92aa50320, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4d76757b9bc47d54b880c4918349324f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -603,7 +605,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 852774d13e13c5f4195e2e822be181a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea5b638a641e90549af17f44c5e1fa8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

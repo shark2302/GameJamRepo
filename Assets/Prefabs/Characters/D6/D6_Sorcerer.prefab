@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 2614959354653110647}
   - component: {fileID: 2614959354653110646}
   - component: {fileID: 2614959354653110641}
+  - component: {fileID: 8143101944640526468}
   m_Layer: 0
   m_Name: D6_Sorcerer
   m_TagString: Untagged
@@ -398,11 +399,30 @@ MonoBehaviour:
     AbilityName: Heal
     UseCount: 3
   UseSpecialAbilityOnly: 0
-  _spriteRenderer: {fileID: 0}
+  _spriteRenderer: {fileID: 5292255735464882387}
   _bulletPrefab: {fileID: 6120700396509613123, guid: 5c6627d0e07e2b4468f45eeeab5f88eb,
     type: 3}
   _bulletStart: {fileID: 2614959354653110647}
   _hpText: {fileID: 7850245966587498629}
+--- !u!95 &8143101944640526468
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2614959354653110644}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 31bac3bc19c830046ad53d4a0b2fc0ec, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2614959355296259110
 GameObject:
   m_ObjectHideFlags: 0
