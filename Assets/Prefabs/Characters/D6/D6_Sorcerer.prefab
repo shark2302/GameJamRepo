@@ -392,6 +392,13 @@ MonoBehaviour:
   DamageFrom: 1
   DamageTo: 6
   DamageToAllMultiplier: 0.3
+  DropAnimationSprite:
+  - {fileID: 21300000, guid: 1d5606a34258ce142be46a7313656016, type: 3}
+  - {fileID: 21300000, guid: 460b7f2905078e04c84216009441f665, type: 3}
+  - {fileID: 21300000, guid: 5e2dbbf115703d84684f6c158b419c7f, type: 3}
+  - {fileID: 21300000, guid: 22ecf7691aab8fa4696684887a9861ce, type: 3}
+  - {fileID: 21300000, guid: 11c13b4b4717b3745b086f7e66fc67b4, type: 3}
+  - {fileID: 21300000, guid: 781f48ef2e3518e4293eb70197da33c2, type: 3}
   _maxHitPoints: 18
   _fighterType: 0
   _specialAbility:

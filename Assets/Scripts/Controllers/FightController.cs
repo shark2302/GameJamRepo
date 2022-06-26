@@ -17,7 +17,7 @@ public class FightController : MonoBehaviour
 		SPECIAL
 	}
 	
-	private const string YourTurnString = "Ваш ход\nПеерсонаж: <color='green'>{0}</color>";
+	private const string YourTurnString = "Ваш ход\nПерсонаж: <color='green'>{0}</color>";
 
 	private const string EnemyTurn = "Ход соперника";
 
@@ -288,7 +288,7 @@ public class FightController : MonoBehaviour
 	{
 		Panel.SetActive(false);
 		RandomWindow.gameObject.SetActive(true);
-		RandomWindow.SetData(_currentTurnFighter.DamageFrom, _currentTurnFighter.DamageTo);
+		RandomWindow.SetData(_currentTurnFighter.DamageFrom, _currentTurnFighter.DamageTo, _currentTurnFighter.DropAnimationSprite);
 		RandomWindow.RandomNumberGenerated += RandomNumberGenerated;
 	}
 
