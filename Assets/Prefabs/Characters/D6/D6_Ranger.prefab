@@ -310,7 +310,7 @@ MonoBehaviour:
   DamageFrom: 1
   DamageTo: 6
   DamageToAllMultiplier: 0.3
-  _maxHitPoints: 6
+  _maxHitPoints: 21
   _fighterType: 0
   _specialAbility:
     AbilityType: 2
