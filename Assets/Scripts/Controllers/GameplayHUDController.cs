@@ -44,6 +44,7 @@ namespace DefaultNamespace
 		private Queue<NPC.DialogElement> _dialogQueue;
 		private NPC.NPCDialogData _currentDialogData;
 		private NPC.Dialog _currentDialog;
+		private NPC _currentNPC;
 
 		private void Awake()
 		{
@@ -69,10 +70,10 @@ namespace DefaultNamespace
 			_dialogButton.gameObject.SetActive(state);
 		}
 
-		public void SetDialogData(NPC.NPCDialogData dialogData)
+		public void SetDialogData(NPC.NPCDialogData dialogData, NPC npc)
 		{
 			_currentDialogData = dialogData;
-			
+			_currentNPC = npc;
 		}
 
 		public void OnShowDialogClick()
@@ -112,7 +113,7 @@ namespace DefaultNamespace
 				_endedDialogs.Add(_currentDialog);
 				if (_currentDialog != null && _currentDialog.StartFightAfterDialog)
 				{
-					AppController.SceneController.SwitchToFightScene(_currentDialogData.Mobs);
+					AppController.SceneController.SwitchToFightScene(_currentDialogData.Mobs, _currentNPC);
 					AppController.FightController.FightEndedEvent += OnFightEndedEvent;
 				}
 				_dialogQueue = null;
@@ -154,6 +155,7 @@ namespace DefaultNamespace
 
 			_currentDialog = null;
 			AppController.FightController.FightEndedEvent -= OnFightEndedEvent;
+			_currentNPC = null;
 		}
 
 		public bool CheckDialogShowedOnce(NPC.Dialog dialog)

@@ -69,6 +69,7 @@ public class FightController : MonoBehaviour
 	private Fighter.FighterType _abilityFighterType;
 	private Fighter _target;
 	private List<GameObject> _destoyOnDisable;
+	private NPC _currentNPC;
 
 	private void Awake()
 	{
@@ -88,8 +89,9 @@ public class FightController : MonoBehaviour
 		
 	}
 
-	public void SetData(GameObject[] enemies)
+	public void SetData(GameObject[] enemies, NPC npc)
 	{
+		_currentNPC = npc;
 		_destoyOnDisable = new List<GameObject>();
 		SpawnFighters(CachedParams.GetWinCount() >= 2 && _level2Prefabs.Length > 0 ? _level2Prefabs : _level1Prefabs, enemies);
 		_currentTurnFighter = _friendlyFighters.Dequeue();
@@ -209,12 +211,14 @@ public class FightController : MonoBehaviour
 			{
 				AppController.Hero.ChangeHeroLevel();
 			}
+			if(_currentNPC != null)
+				Destroy(_currentNPC.gameObject);
 		}
 		else
 		{
 			TipText.text = LoseText;
 		}
-
+		_currentNPC = null;
 		yield return new WaitForSeconds(3f);
 		Panel.SetActive(false);
 		AppController.SceneController.SwitchToOpenWorldScene();
