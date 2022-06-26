@@ -185,6 +185,7 @@ public class FightController : MonoBehaviour
 				{
 					_currentTurnFighter.Damage(fighterArray[r.Next(0, fighterArray.Length)], r.Next(_currentTurnFighter.DamageFrom, _currentTurnFighter.DamageTo + 1));
 				}
+				yield return new WaitForSeconds(2f);
 				
 				NextTurn();
 			}
