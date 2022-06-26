@@ -28,6 +28,8 @@ public class FightController : MonoBehaviour
 	private const string LoseText = "Вы проиграли";
 
 	public Action<bool> FightEndedEvent;
+
+	public SpriteRenderer Background;
 	
 	[SerializeField] 
 	private Transform[] _friendsSpots;
@@ -89,8 +91,9 @@ public class FightController : MonoBehaviour
 		
 	}
 
-	public void SetData(GameObject[] enemies, NPC npc)
+	public void SetData(GameObject[] enemies, NPC npc, Sprite back)
 	{
+		Background.sprite = back;
 		_currentNPC = npc;
 		_destoyOnDisable = new List<GameObject>();
 		SpawnFighters(CachedParams.GetWinCount() >= 2 && _level2Prefabs.Length > 0 ? _level2Prefabs : _level1Prefabs, enemies);

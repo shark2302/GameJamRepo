@@ -46,6 +46,8 @@ public class NPC : MonoBehaviour
    [SerializeField]
    private NPCInteractionType _interactionType;
 
+   public Sprite FightBackground;
+   
    [SerializeField] 
    private NPCDialogData _dialogData;
    
