@@ -181,7 +181,7 @@ Transform:
   m_GameObject: {fileID: 2614959354653110644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -308.75, y: -101.94, z: 0}
-  m_LocalScale: {x: 0.22312738, y: 0.22312734, z: 1}
+  m_LocalScale: {x: 0.17, y: 0.17, z: 1}
   m_Children:
   - {fileID: 2614959355296259105}
   - {fileID: 7118613143687634557}
@@ -229,13 +229,17 @@ MonoBehaviour:
   Name: "\u041A\u0443\u0431\u043B\u0438\u043D 2"
   DamageFrom: 1
   DamageTo: 4
+  DamageToAllMultiplier: 0.3
   _maxHitPoints: 12
   _fighterType: 1
   _specialAbility:
     AbilityType: 0
     AbilityName: 
     UseCount: 0
+  UseSpecialAbilityOnly: 0
   _spriteRenderer: {fileID: 7978306946445502227}
+  _bulletPrefab: {fileID: 0}
+  _bulletStart: {fileID: 0}
   _hpText: {fileID: 7850245966587498629}
 --- !u!95 &7304064448976642187
 Animator:
