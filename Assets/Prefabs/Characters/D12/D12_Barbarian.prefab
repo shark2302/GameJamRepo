@@ -238,9 +238,8 @@ MonoBehaviour:
     UseCount: 3
   UseSpecialAbilityOnly: 0
   _spriteRenderer: {fileID: 8681360638864262395}
-  _bulletPrefab: {fileID: 6120700396509613123, guid: 5c6627d0e07e2b4468f45eeeab5f88eb,
-    type: 3}
-  _bulletStart: {fileID: 2614959354653110647}
+  _bulletPrefab: {fileID: 0}
+  _bulletStart: {fileID: 0}
   _hpText: {fileID: 7850245966587498629}
 --- !u!95 &102914734270225877
 Animator:
