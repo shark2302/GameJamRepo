@@ -403,7 +403,7 @@ MonoBehaviour:
   _fighterType: 0
   _specialAbility:
     AbilityType: 1
-    AbilityName: Heal
+    AbilityName: "\u0418\u0441\u0446\u0435\u043B\u0435\u043D\u0438\u0435"
     UseCount: 3
   UseSpecialAbilityOnly: 0
   _spriteRenderer: {fileID: 5292255735464882387}

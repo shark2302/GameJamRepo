@@ -355,8 +355,8 @@ MonoBehaviour:
   _fighterType: 0
   _specialAbility:
     AbilityType: 1
-    AbilityName: Heal
-    UseCount: 3
+    AbilityName: "\u0418\u0441\u0446\u0435\u043B\u0435\u043D\u0438\u0435"
+    UseCount: 4
   UseSpecialAbilityOnly: 0
   _spriteRenderer: {fileID: 2254779150136443831}
   _bulletPrefab: {fileID: 6120700396509613123, guid: 5c6627d0e07e2b4468f45eeeab5f88eb,

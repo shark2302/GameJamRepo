@@ -319,10 +319,9 @@ MonoBehaviour:
     UseCount: 0
   UseSpecialAbilityOnly: 0
   _spriteRenderer: {fileID: 25695364406026723}
-  _bulletPrefab: {fileID: 6120700396509613123, guid: 85c60f9c3674e89478e110dfc27f947a,
+  _bulletPrefab: {fileID: 6120700396509613123, guid: 13ab51ae5f5d0b248ba6855309ccb504,
     type: 3}
-  _bulletStart: {fileID: 6120700396509613120, guid: 85c60f9c3674e89478e110dfc27f947a,
-    type: 3}
+  _bulletStart: {fileID: 415021339456525417}
   _hpText: {fileID: 7850245966587498629}
 --- !u!95 &1146596384820442228
 Animator:
