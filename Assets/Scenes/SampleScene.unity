@@ -1069,7 +1069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47bae1e8a1fc4263b3090bec307b5470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NeedWinToOpen: 2
+  NeedWinToOpen: 3
 --- !u!61 &158722045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10979,7 +10979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47bae1e8a1fc4263b3090bec307b5470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NeedWinToOpen: 2
+  NeedWinToOpen: 1
 --- !u!61 &1894262572
 BoxCollider2D:
   m_ObjectHideFlags: 0
