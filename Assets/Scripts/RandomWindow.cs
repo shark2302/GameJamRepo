@@ -83,7 +83,7 @@ namespace DefaultNamespace
 			for (int i = 0; i < 12; i++)
 			{
 				DiceImage.sprite = _dropAnimations[i % _dropAnimations.Length];
-				yield return new WaitForSeconds(0.1f);
+				yield return new WaitForSeconds(0.05f);
 			}
 
 			DiceImage.sprite = _dropAnimations[0];
