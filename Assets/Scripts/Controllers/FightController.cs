@@ -17,7 +17,7 @@ public class FightController : MonoBehaviour
 		SPECIAL
 	}
 	
-	private const string YourTurnString = "Ваш ход\nПеерсонаж:{0}";
+	private const string YourTurnString = "Ваш ход\nПеерсонаж: <color='green'>{0}</color>";
 
 	private const string EnemyTurn = "Ход соперника";
 
