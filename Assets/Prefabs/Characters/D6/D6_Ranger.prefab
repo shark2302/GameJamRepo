@@ -322,7 +322,7 @@ MonoBehaviour:
   _fighterType: 0
   _specialAbility:
     AbilityType: 2
-    AbilityName: Damage to all
+    AbilityName: "\u0428\u043A\u0432\u0430\u043B"
     UseCount: 3
   UseSpecialAbilityOnly: 0
   _spriteRenderer: {fileID: 3744480590309101274}

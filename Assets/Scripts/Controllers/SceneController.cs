@@ -12,11 +12,11 @@ namespace DefaultNamespace
 			AppController.SceneController = this;
 		}
 
-		public void SwitchToFightScene(GameObject[] enemyMobs, NPC npc)
+		public void SwitchToFightScene(GameObject[] enemyMobs, NPC npc, Sprite back)
 		{
 			OpenWorld.SetActive(false);
 			Fight.SetActive(true);
-			AppController.FightController.SetData(enemyMobs, npc);
+			AppController.FightController.SetData(enemyMobs, npc, back);
 			AppController.Camera.MoveToFight();
 			AppController.Music.SwitchToFightMusic();
 			AppController.GameplayHudController.HideProgressBar();

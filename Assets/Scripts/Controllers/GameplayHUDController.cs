@@ -113,7 +113,7 @@ namespace DefaultNamespace
 				_endedDialogs.Add(_currentDialog);
 				if (_currentDialog != null && _currentDialog.StartFightAfterDialog)
 				{
-					AppController.SceneController.SwitchToFightScene(_currentDialogData.Mobs, _currentNPC);
+					AppController.SceneController.SwitchToFightScene(_currentDialogData.Mobs, _currentNPC, _currentNPC.FightBackground);
 					AppController.FightController.FightEndedEvent += OnFightEndedEvent;
 				}
 				_dialogQueue = null;

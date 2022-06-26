@@ -274,8 +274,8 @@ MonoBehaviour:
   _fighterType: 0
   _specialAbility:
     AbilityType: 2
-    AbilityName: Damage to all
-    UseCount: 3
+    AbilityName: "\u0428\u043A\u0432\u0430\u043B"
+    UseCount: 4
   UseSpecialAbilityOnly: 0
   _spriteRenderer: {fileID: 2991165839699298635}
   _bulletPrefab: {fileID: 6120700396509613123, guid: 8cdfcc4bc5e017247b31f1c7a3f5c5bc,
