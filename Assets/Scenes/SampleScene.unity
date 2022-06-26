@@ -6426,7 +6426,7 @@ MonoBehaviour:
   Parent: {fileID: 523276016}
   Level1Prefab: {fileID: 5719929708078627821, guid: 4bcbcb33892f8c74daf372c438ff1ef7,
     type: 3}
-  Level2Prefab: {fileID: 5719929708078627821, guid: 5386f7bfa96834145a5cf38aaeceb013,
+  Level2Prefab: {fileID: 5719929708078627821, guid: 3b52907a43b65bb429ffea91f15997a9,
     type: 3}
 --- !u!1 &1049999534
 GameObject:
