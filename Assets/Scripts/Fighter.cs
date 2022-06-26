@@ -41,6 +41,8 @@ namespace DefaultNamespace
 		
 		public float DamageToAllMultiplier = 0.3f;
 
+		public Sprite[] DropAnimationSprite;
+
 		[SerializeField] 
 		private float _maxHitPoints;
 		

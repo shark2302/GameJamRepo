@@ -393,7 +393,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -425,6 +425,13 @@ MonoBehaviour:
   DamageFrom: 1
   DamageTo: 6
   DamageToAllMultiplier: 0.3
+  DropAnimationSprite:
+  - {fileID: 21300000, guid: e924a250235bd27459495e4a80fe1351, type: 3}
+  - {fileID: 21300000, guid: f0c9d99421b616648854283bb63a49bd, type: 3}
+  - {fileID: 21300000, guid: 23d47415cefba634e9a08dea09703eee, type: 3}
+  - {fileID: 21300000, guid: ee68fd3ed2a86ac46a21ad7c027aebac, type: 3}
+  - {fileID: 21300000, guid: 9d56cff4a13627d489533d2545e4b9c7, type: 3}
+  - {fileID: 21300000, guid: 55409ede0b47b6049b8bf94ab6443daa, type: 3}
   _maxHitPoints: 24
   _fighterType: 0
   _specialAbility:
