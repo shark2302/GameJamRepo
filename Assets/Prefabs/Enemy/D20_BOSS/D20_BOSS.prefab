@@ -423,9 +423,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Dragon
+  ColorCode: 
   DamageFrom: 1
   DamageTo: 20
   DamageToAllMultiplier: 1.3
+  DropAnimationSprite: []
   _maxHitPoints: 60
   _fighterType: 1
   _specialAbility:
@@ -433,7 +435,7 @@ MonoBehaviour:
     AbilityName: FireWall
     UseCount: 0
   UseSpecialAbilityOnly: 1
-  _spriteRenderer: {fileID: 0}
+  _spriteRenderer: {fileID: 6869287580024647158}
   _bulletPrefab: {fileID: 0}
   _bulletStart: {fileID: 0}
   _hpText: {fileID: 7850245966587498629}

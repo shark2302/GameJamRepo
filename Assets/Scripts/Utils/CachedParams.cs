@@ -16,7 +16,7 @@ namespace DefaultNamespace.Utils
 
 		public static void ResetProgress()
 		{
-			PlayerPrefs.SetInt("Wins", 2);
+			PlayerPrefs.SetInt("Wins", 0);
 			AppController.GameplayHudController.ShowProgressBar();
 		}
 	}
