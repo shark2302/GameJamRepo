@@ -49,9 +49,8 @@ namespace DefaultNamespace
 
 		[SerializeField] 
 		private AbilityInfo _specialAbility;
-
-		[SerializeField] 
-		private bool UseSpecialAbilityOnly;
+		
+		public bool UseSpecialAbilityOnly;
 
 		[SerializeField]
 		private SpriteRenderer _spriteRenderer;
@@ -144,7 +143,6 @@ namespace DefaultNamespace
 				{
 					target.PlayDamagedAnimation();
 				}
-				CreateBullet(target);
 			}
 		}
 

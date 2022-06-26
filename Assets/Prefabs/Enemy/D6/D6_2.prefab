@@ -391,12 +391,14 @@ MonoBehaviour:
   Name: "\u0416\u0435\u043B\u0435\u0448\u043A\u0430_2"
   DamageFrom: 1
   DamageTo: 6
+  DamageToAllMultiplier: 1
   _maxHitPoints: 18
   _fighterType: 1
   _specialAbility:
-    AbilityType: 0
+    AbilityType: 2
     AbilityName: 
-    UseCount: 0
+    UseCount: 3
+  UseSpecialAbilityOnly: 1
   _spriteRenderer: {fileID: 3274620331558943797}
   _bulletPrefab: {fileID: 6120700396509613123, guid: 5c6627d0e07e2b4468f45eeeab5f88eb,
     type: 3}

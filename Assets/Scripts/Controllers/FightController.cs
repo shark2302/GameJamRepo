@@ -170,7 +170,22 @@ public class FightController : MonoBehaviour
 				_abilityFighterType = Fighter.FighterType.ENEMY;
 				yield return new WaitForSeconds(1f);
 				var fighterArray = _friendlyFighters.ToArray();
-				_currentTurnFighter.Damage(fighterArray[r.Next(0, fighterArray.Length)], r.Next(_currentTurnFighter.DamageFrom, _currentTurnFighter.DamageTo + 1));
+				
+				if (_currentTurnFighter.GetSpecialAbilityType() != Fighter.AbilityType.NONE &&
+				    _currentTurnFighter.UseSpecialAbilityOnly)
+				{
+					_currentTurnFighter.DamageTargets(_friendlyFighters.ToArray(), r.Next(_currentTurnFighter.DamageFrom, _currentTurnFighter.DamageTo + 1));
+				}
+				else if (_currentTurnFighter.GetSpecialAbilityType() != Fighter.AbilityType.NONE &&
+				         _currentTurnFighter.AvailableSpecialAbilityUse() > 0 && r.Next(1, 4) == 2)
+				{
+					_currentTurnFighter.DamageTargets(_friendlyFighters.ToArray(), r.Next(_currentTurnFighter.DamageFrom, _currentTurnFighter.DamageTo + 1));
+				}
+				else
+				{
+					_currentTurnFighter.Damage(fighterArray[r.Next(0, fighterArray.Length)], r.Next(_currentTurnFighter.DamageFrom, _currentTurnFighter.DamageTo + 1));
+				}
+				
 				NextTurn();
 			}
 			
