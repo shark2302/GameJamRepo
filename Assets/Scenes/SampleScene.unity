@@ -4963,13 +4963,13 @@ MonoBehaviour:
   - {fileID: 1674891496}
   - {fileID: 1359555006}
   _level1Prefabs:
-  - {fileID: 2614959354653110644, guid: 8a49faa50797d444b9d603d6014e64e0, type: 3}
-  - {fileID: 2614959354653110644, guid: f17ee326289ea1d4789e51753357d33b, type: 3}
-  - {fileID: 2614959354653110644, guid: 53ba8529e068bef49a2550f1a85dc57c, type: 3}
+  - {fileID: 2614959354653110644, guid: b6daced2570bafe4f94a6dd07a965491, type: 3}
+  - {fileID: 2614959354653110644, guid: e254d6ad01dccd84caf7d784663be883, type: 3}
+  - {fileID: 2614959354653110644, guid: bc7e13b503abe7342a312903785d5aea, type: 3}
   _level2Prefabs:
-  - {fileID: 2614959354653110644, guid: 8a49faa50797d444b9d603d6014e64e0, type: 3}
-  - {fileID: 2614959354653110644, guid: f17ee326289ea1d4789e51753357d33b, type: 3}
-  - {fileID: 2614959354653110644, guid: 53ba8529e068bef49a2550f1a85dc57c, type: 3}
+  - {fileID: 2614959354653110644, guid: 48d8b4bec6e1b6148a7eeb203ec3ce98, type: 3}
+  - {fileID: 2614959354653110644, guid: f61f392c35e3e2243aa16bdd42cfdb11, type: 3}
+  - {fileID: 2614959354653110644, guid: eea4e8830ea18434c86780e94f88fdf1, type: 3}
   Panel: {fileID: 1177040517}
   RandomWindow: {fileID: 684973604}
   YourTurnText: {fileID: 1192187127}
