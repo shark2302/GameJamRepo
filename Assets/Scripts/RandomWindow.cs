@@ -16,6 +16,8 @@ namespace DefaultNamespace
 
 		public Button DropButton;
 
+		public GameObject MissText;
+
 		private int _lastDrop;
 
 		private Random _random = new Random();
@@ -34,6 +36,7 @@ namespace DefaultNamespace
 			_damageTo = damageTo;
 			_lastDrop = 0;
 			NumberText.text = string.Empty;
+			MissText.SetActive(false);
 		}
 
 		public void OnDropButton()
@@ -43,6 +46,7 @@ namespace DefaultNamespace
 			if (_lastDrop != 0 && drop < _lastDrop)
 			{
 				RandomNumberGenerated.Invoke(0);
+				MissText.SetActive(true);
 				DropButton.interactable = false;
 				AcceptButton.interactable = false;
 			}
