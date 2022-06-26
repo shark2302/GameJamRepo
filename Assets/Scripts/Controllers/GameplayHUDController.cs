@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DefaultNamespace.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,10 @@ namespace DefaultNamespace
 		public Action DialogStartedEvent;
 
 		public Action DialogEndedEvent;
+
+		public Image ProgressBar;
+
+		public Sprite[] BarImages;
 		
 		[SerializeField] 
 		private Button _figthButton;
@@ -157,6 +162,43 @@ namespace DefaultNamespace
 		public bool CheckDialogShowedOnce(NPC.Dialog dialog)
 		{
 			return _endedDialogs.Contains(dialog);
+		}
+
+		public void HideProgressBar()
+		{
+			ProgressBar.gameObject.SetActive(false);
+		}
+
+		public void ShowProgressBar()
+		{
+			ProgressBar.gameObject.SetActive(false);
+		}
+
+		private void UpdateProgressBar()
+		{
+			var wins = CachedParams.GetWinCount();
+			if (wins == 0)
+			{
+				
+			}
+			else if (wins == 1)
+			{
+				ProgressBar.sprite = BarImages[4];
+			}
+			else if (wins == 2)
+			{
+				ProgressBar.sprite = BarImages[0];
+			}
+			else if (wins == 3)
+				ProgressBar.sprite = BarImages[1];
+			else if (wins == 4)
+				ProgressBar.sprite = BarImages[2];
+			else if (wins == 5)
+				ProgressBar.sprite = BarImages[3];
+			else if(wins == 6)
+				ProgressBar.sprite = BarImages[4];
+			
+
 		}
 	}
 }
