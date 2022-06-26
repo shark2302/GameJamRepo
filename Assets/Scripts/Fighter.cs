@@ -85,10 +85,7 @@ namespace DefaultNamespace
 		{
 			target.ChangeHitPoints(-damageValue);
 			PlayAttackAnimation(target);
-			if (_bulletPrefab == null)
-			{
-				target.PlayDamagedAnimation();
-			}
+			
 		}
 
 		public void Heal(Fighter target, int healValue)
@@ -139,10 +136,6 @@ namespace DefaultNamespace
 			foreach (var target in targets)
 			{
 				Damage(target, (int)(value * DamageToAllMultiplier));
-				if (_bulletPrefab == null)
-				{
-					target.PlayDamagedAnimation();
-				}
 			}
 		}
 
@@ -179,6 +172,10 @@ namespace DefaultNamespace
 		{
 			yield return new WaitForSeconds(delay);
 			CreateBullet(target);
+			if (_bulletPrefab == null && target != null)
+			{
+				target.PlayDamagedAnimation();
+			}
 			_animator.SetBool("Attack", false);
 		}
 		
@@ -197,7 +194,7 @@ namespace DefaultNamespace
 
 		private void CreateBullet(Fighter target)
 		{
-			if (_bulletPrefab != null)
+			if (_bulletPrefab != null && target != null)
 			{
 				var bullet = Instantiate(_bulletPrefab, _bulletStart.position, Quaternion.identity);
 				if (bullet.TryGetComponent<Bullet>(out var b))

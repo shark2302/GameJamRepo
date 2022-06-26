@@ -16,6 +16,11 @@ namespace DefaultNamespace
 
 		private void Update()
 		{
+			if (_target == null)
+			{
+				Destroy(gameObject);
+				return;
+			}
 			gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position,
 				_target.gameObject.transform.position, Speed * Time.deltaTime);
 

@@ -60,6 +60,7 @@ namespace DefaultNamespace
 			_dialogPanel.SetActive(false);
 			_npcView.View.SetActive(false);
 			_heroView.View.SetActive(false);
+			UpdateProgressBar();
 		}
 
 		public void SetActiveFigthButton(bool state)
@@ -171,7 +172,8 @@ namespace DefaultNamespace
 
 		public void ShowProgressBar()
 		{
-			ProgressBar.gameObject.SetActive(false);
+			ProgressBar.gameObject.SetActive(true);
+			UpdateProgressBar();
 		}
 
 		private void UpdateProgressBar()
@@ -179,7 +181,7 @@ namespace DefaultNamespace
 			var wins = CachedParams.GetWinCount();
 			if (wins == 0)
 			{
-				
+				ProgressBar.sprite = BarImages[0];
 			}
 			else if (wins == 1)
 			{
@@ -197,6 +199,10 @@ namespace DefaultNamespace
 				ProgressBar.sprite = BarImages[3];
 			else if(wins == 6)
 				ProgressBar.sprite = BarImages[4];
+			else if (wins >= 7)
+			{
+				ProgressBar.sprite = BarImages[5];
+			}
 			
 
 		}

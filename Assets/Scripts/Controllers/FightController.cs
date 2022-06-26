@@ -81,7 +81,8 @@ public class FightController : MonoBehaviour
 		{
 			foreach (var obj in _destoyOnDisable)
 			{
-				Destroy(obj);
+				if(obj != null)
+					Destroy(obj);
 			}
 		}
 		
@@ -132,7 +133,8 @@ public class FightController : MonoBehaviour
 	{
 		Random r = new Random();
 		_generatedRandomNumber = -1;
-		TutorialObject.SetActive(true);
+		if(TutorialObject  != null)
+			TutorialObject.SetActive(true);
 		Panel.SetActive(false);
 		yield return new WaitUntil(() => TutorialObject == null);
 		Panel.SetActive(true);
@@ -230,6 +232,7 @@ public class FightController : MonoBehaviour
 		{
 			_enemyFighters = new Queue<Fighter>(_enemyFighters.Where(x => x != fighter));
 		}
+		Destroy(fighter.gameObject);
 	}
 
 	private void NextTurn()
