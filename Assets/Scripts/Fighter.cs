@@ -83,9 +83,11 @@ namespace DefaultNamespace
 
 		public void Damage(Fighter target, int damageValue)
 		{
-			target.ChangeHitPoints(-damageValue);
-			PlayAttackAnimation(target);
-			
+			if (damageValue > 0)
+			{
+				target.ChangeHitPoints(-damageValue);
+				PlayAttackAnimation(target);
+			}
 		}
 
 		public void Heal(Fighter target, int healValue)
@@ -133,10 +135,14 @@ namespace DefaultNamespace
 
 		public void DamageTargets(Fighter[] targets, int value)
 		{
-			foreach (var target in targets)
+			if (value > 0)
 			{
-				Damage(target, (int)(value * DamageToAllMultiplier));
+				foreach (var target in targets)
+				{
+					Damage(target, (int)(value * DamageToAllMultiplier));
+				}
 			}
+			
 		}
 
 		public int AvailableSpecialAbilityUse()
