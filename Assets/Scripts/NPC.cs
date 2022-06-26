@@ -86,12 +86,7 @@ public class NPC : MonoBehaviour
    {
       if (other.TryGetComponent<Movement>(out var hero))
       {
-         if (_interactionType == NPCInteractionType.FIGHT)
-         {
-            AppController.GameplayHudController.SetActiveFigthButton(state);
-         }
-
-         else if (_interactionType == NPCInteractionType.DIALOG)
+         if (_interactionType == NPCInteractionType.DIALOG)
          {
             AppController.GameplayHudController.SetActiveDialogButton(state);
             AppController.GameplayHudController.SetDialogData(_dialogData);

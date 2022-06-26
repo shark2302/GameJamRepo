@@ -26,8 +26,6 @@ namespace DefaultNamespace
 
 		public Sprite[] BarImages;
 		
-		[SerializeField] 
-		private Button _figthButton;
 
 		[SerializeField] 
 		private Button _dialogButton;
@@ -55,19 +53,17 @@ namespace DefaultNamespace
 		
 		private void Start()
 		{
-			_figthButton.gameObject.SetActive(false);
 			_dialogButton.gameObject.SetActive(false);
 			_dialogPanel.SetActive(false);
 			_npcView.View.SetActive(false);
 			_heroView.View.SetActive(false);
 			UpdateProgressBar();
 		}
-
-		public void SetActiveFigthButton(bool state)
+		
+		public void OnResetButtonClick()
 		{
-			_figthButton.gameObject.SetActive(state);
+			CachedParams.ResetProgress();
 		}
-
 		public void SetActiveDialogButton(bool state)
 		{
 			_dialogButton.gameObject.SetActive(state);
