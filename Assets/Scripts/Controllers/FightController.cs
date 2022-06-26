@@ -170,7 +170,7 @@ public class FightController : MonoBehaviour
 				_abilityFighterType = Fighter.FighterType.ENEMY;
 				yield return new WaitForSeconds(1f);
 				var fighterArray = _friendlyFighters.ToArray();
-				_currentTurnFighter.Damage(fighterArray[r.Next(0, fighterArray.Length)], r.Next(_currentTurnFighter.DamageFrom, _currentTurnFighter.DamageTo));
+				_currentTurnFighter.Damage(fighterArray[r.Next(0, fighterArray.Length)], r.Next(_currentTurnFighter.DamageFrom, _currentTurnFighter.DamageTo + 1));
 				NextTurn();
 			}
 			

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections;
-using TMPro.EditorUtilities;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,7 +8,7 @@ namespace DefaultNamespace
 {
 	public class Fighter : MonoBehaviour, IPointerDownHandler
 	{
-		private const float DamageToAllMultiplier = 0.3f;
+		
 		
 		public Action<Fighter> DeathEvent;
 		public Action<Fighter> ClickEvent;
@@ -40,6 +38,8 @@ namespace DefaultNamespace
 		public int DamageFrom;
 
 		public int DamageTo;
+		
+		public float DamageToAllMultiplier = 0.3f;
 
 		[SerializeField] 
 		private float _maxHitPoints;
@@ -49,6 +49,9 @@ namespace DefaultNamespace
 
 		[SerializeField] 
 		private AbilityInfo _specialAbility;
+
+		[SerializeField] 
+		private bool UseSpecialAbilityOnly;
 
 		[SerializeField]
 		private SpriteRenderer _spriteRenderer;
@@ -83,6 +86,10 @@ namespace DefaultNamespace
 		{
 			target.ChangeHitPoints(-damageValue);
 			PlayAttackAnimation(target);
+			if (_bulletPrefab == null)
+			{
+				target.PlayDamagedAnimation();
+			}
 		}
 
 		public void Heal(Fighter target, int healValue)
@@ -133,7 +140,10 @@ namespace DefaultNamespace
 			foreach (var target in targets)
 			{
 				Damage(target, (int)(value * DamageToAllMultiplier));
-				//target.PlayDamagedAnimation();
+				if (_bulletPrefab == null)
+				{
+					target.PlayDamagedAnimation();
+				}
 				CreateBullet(target);
 			}
 		}

@@ -38,7 +38,7 @@ namespace DefaultNamespace
 
 		public void OnDropButton()
 		{
-			int drop = _random.Next(_damageFrom, _damageTo);
+			int drop = _random.Next(_damageFrom, _damageTo + 1);
 			NumberText.text = drop.ToString();
 			if (_lastDrop != 0 && drop < _lastDrop)
 			{
