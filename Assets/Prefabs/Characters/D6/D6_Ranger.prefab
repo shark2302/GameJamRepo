@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470405754556790353}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.155, y: -0.308, z: 0}
+  m_LocalPosition: {x: 0.762, y: -0.716, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7957244194033347716}
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 5689e4a9e6cac0c4d976a4ac4a557dbb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a9750d11573dce24c947b933ffa98990, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -306,15 +306,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e5f5f8e4b1452e9841b0a0de8faa91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: "\u041A\u0443\u0431\u0438\u043A"
+  Name: "\u0414\u0438\u0441\u0438\u043A\u0441"
   DamageFrom: 1
   DamageTo: 6
+  DamageToAllMultiplier: 0.3
   _maxHitPoints: 3
   _fighterType: 0
   _specialAbility:
     AbilityType: 2
     AbilityName: Damage to all
     UseCount: 3
+  UseSpecialAbilityOnly: 0
   _spriteRenderer: {fileID: 0}
   _bulletPrefab: {fileID: 6120700396509613123, guid: 5c6627d0e07e2b4468f45eeeab5f88eb,
     type: 3}
@@ -489,7 +491,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 20a6c7ea4e34cfb4892b87d92aa50320, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d15a1ab50dc9bf9458bcac76cf1bd8db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

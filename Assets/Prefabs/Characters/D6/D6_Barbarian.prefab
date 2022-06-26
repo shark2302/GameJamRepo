@@ -420,15 +420,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e5f5f8e4b1452e9841b0a0de8faa91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: "\u041A\u0443\u0431\u0438\u043A"
+  Name: "\u041A\u0443\u0431\u043E\u043D\u0430\u043D"
   DamageFrom: 1
   DamageTo: 6
+  DamageToAllMultiplier: 0.3
   _maxHitPoints: 3
   _fighterType: 0
   _specialAbility:
-    AbilityType: 2
-    AbilityName: Damage to all
-    UseCount: 3
+    AbilityType: 0
+    AbilityName: 
+    UseCount: 0
+  UseSpecialAbilityOnly: 0
   _spriteRenderer: {fileID: 0}
   _bulletPrefab: {fileID: 6120700396509613123, guid: 5c6627d0e07e2b4468f45eeeab5f88eb,
     type: 3}
