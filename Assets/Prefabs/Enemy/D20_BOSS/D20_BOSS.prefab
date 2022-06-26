@@ -425,7 +425,7 @@ MonoBehaviour:
   Name: Dragon
   DamageFrom: 1
   DamageTo: 20
-  DamageToAllMultiplier: 0.3
+  DamageToAllMultiplier: 1.3
   _maxHitPoints: 60
   _fighterType: 1
   _specialAbility:
