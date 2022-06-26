@@ -45,6 +45,8 @@ public class FightController : MonoBehaviour
 	public GameObject Panel;
 
 	public RandomWindow RandomWindow;
+
+	public GameObject TutorialObject;
 	
 	public Text YourTurnText;
 
@@ -130,6 +132,10 @@ public class FightController : MonoBehaviour
 	{
 		Random r = new Random();
 		_generatedRandomNumber = -1;
+		TutorialObject.SetActive(true);
+		Panel.SetActive(false);
+		yield return new WaitUntil(() => TutorialObject == null);
+		Panel.SetActive(true);
 		while (_enemyFighters.Count > 0 && _friendlyFighters.Count > 0)
 		{
 			if (_currentTurnFighter.GetFighterType() == Fighter.FighterType.FRIEND)
