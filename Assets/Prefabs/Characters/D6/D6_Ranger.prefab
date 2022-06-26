@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e5f5f8e4b1452e9841b0a0de8faa91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: "\u0414\u0438\u0441\u0438\u043A\u0441"
+  Name: "\u0414\u0430\u0439\u0441\u0438\u043A\u0441"
   DamageFrom: 1
   DamageTo: 6
   DamageToAllMultiplier: 0.3
